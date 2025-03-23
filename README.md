@@ -30,7 +30,7 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 
 ### ✅ Opção 1 – Com Docker (recomendado)
 
-> Requer `docker` e `docker-compose`
+> Requer `docker` e `docker-compose` e que o Docker desktop esteja aberto junto com subsistema do Windows para Linux
 
 git https://github.com/MarceloOliveiradev/API_FORD.git
 
