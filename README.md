@@ -87,13 +87,21 @@ O script cobre:
 
 # 🌟 Diferenciais Implementados
 ✅ Autenticação com JWT
+
 ✅ Criptografia de CPF com Fernet
+
 ✅ Migrations com Alembic
+
 ✅ Docker + Docker Compose
+
 ✅ CI/CD com GitHub Actions
+
 ✅ Testes Automatizados
+
 ✅ Permissões diferenciadas (Admin x User)
+
 ✅ CORS habilitado
+
 ✅ Documentação automática via Swagger
 
 
