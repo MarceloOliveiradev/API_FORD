@@ -32,7 +32,6 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 
 > Requer `docker` e `docker-compose`
 
-```bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 
