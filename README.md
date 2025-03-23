@@ -49,6 +49,7 @@ Requer: Python 3.11+, PostgreSQL e virtualenv
 
 # Clonar o projeto
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
+
 cd seu-repo
 
 # Criar ambiente virtual
