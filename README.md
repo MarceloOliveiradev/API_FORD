@@ -73,8 +73,11 @@ O script cobre:
 # 📊 Endpoints de Analytics (JWT obrigatório)
 
 */analytics/total-purchases-by-supplier
+
 */analytics/total-purchases-by-part
+
 */analytics/warranties-by-supplier
+
 */analytics/average-purchance-by-type
 
 # ⚙️ CI/CD – GitHub Actions
