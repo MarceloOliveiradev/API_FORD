@@ -32,7 +32,7 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 
 > Requer `docker` e `docker-compose`
 
-git clone https://github.com/seu-usuario/seu-repo.git
+git https://github.com/MarceloOliveiradev/API_FORD.git
 cd seu-repo
 
 docker-compose up --build
