@@ -42,6 +42,7 @@ docker-compose up --build
 
 📝 Certifique-se de que o arquivo .env contenha:
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
+
 Importante: use db e não localhost dentro do Docker.
 
 # 🧪 Ambiente Virtual e Instalação de Dependências (Dentro do Container)
