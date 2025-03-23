@@ -28,61 +28,111 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 
 ## 🚀 Como Executar
 
-### ✅ Única opção permitida – Docker
+### ✅ Opção 1 – Com Docker (recomendado)
 
-> Requisitos: `docker` e `docker-compose` instalados
+> Requer `docker` e `docker-compose`
 
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
-cd API_FORD
+cd seu-repo
+
 docker-compose up --build
 
-📄 Acesse a documentação Swagger em: http://localhost:8000/docs
+##Acesse em: http://localhost:8000/docs##
 
-📝 Certifique-se de que o arquivo .env contenha:
+📝 Importante: Para rodar com Docker, o seu .env deve conter:
 
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
-# 🔐 Autenticação
+#trocar localhost para db#
+
+🖥️ Opção 2 – Execução Local
+Requer: Python 3.11+, PostgreSQL e virtualenv
+
+# Clonar o projeto
+
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
+
+# Criar ambiente virtual
+
+python -m venv venv
+source venv/bin/activate # Linux/macOS
+venv\Scripts\activate # Windows
+
+# Instalar dependências
+
+pip install -r requirements.txt
+
+1. Crie o banco PostgreSQL:
+   createdb FORD_DATABASE
+   createuser dev_ford --pwprompt
+
+2. Configure o .env com:
+   DATABASE_URL=postgresql://dev_ford:34852@localhost:5432/FORD_DATABASE
+
+3. Rode as migrations:
+   alembic upgrade head
+
+4. (Opcional) Popular com dados iniciais:
+   python -m app.populate_db
+
+5. Subir o servidor:
+   uvicorn app.main:app --reload
+
+---
+
+🔐 Autenticação
 
 1. Registrar usuário: POST /auth/register
 
 2. Login: POST /auth/login
 
-3. Envie o token JWT no cabeçalho:
-Authorization: Bearer <seu_token>
+3. Enviar token JWT no header:
+   Authorization: Bearer <seu_token>
 
-# 🧪 Testes Automatizados (dentro do Docker)
-Os testes são executados automaticamente no container ao subir a aplicação.
-
-Ou, se quiser rodar manualmente dentro do container:
-docker exec -it ford_api bash
+🧪 Testes Automatizados
+Execute:
 python test_all_routes.py
 
-O script cobre:
+O script simula:
 
-* Registro e login
+- Registro e login
 
-* Todas as rotas CRUD
+- CRUD completo
 
-* Relatórios analíticos
+- Relatórios analíticos
 
-* Permissões (admin vs usuário comum)
+- Permissões de Admin/User
 
-# 📊 Endpoints de Analytics (JWT obrigatório)
+⚠️ Importante:
 
-*/analytics/total-purchases-by-supplier
-*/analytics/total-purchases-by-part
-*/analytics/warranties-by-supplier
-*/analytics/average-purchance-by-type
+Para testes locais: use localhost no .env
 
+Para subir com Docker: use db no .env
 
-# ⚙️ CI/CD – GitHub Actions
+📊 Endpoints Analytics
+Necessário JWT:
 
-* Linter + Testes automatizados
-* PostgreSQL mockado em container
-* Execução: python test_all_routes.py
+- /analytics/total-purchases-by-supplier
 
-# 🌟 Diferenciais Implementados
+- /analytics/total-purchases-by-part
+
+- /analytics/warranties-by-supplier
+
+- /analytics/average-purchance-by-type
+
+⚙️ CI/CD – GitHub Actions
+
+- Linter + Testes executados automaticamente
+
+- PostgreSQL mockado via container
+
+- Execução: python test_all_routes.py
+
+---
+
+🌟 Diferenciais Implementados
+
 ✅ Autenticação com JWT
 ✅ Criptografia de CPF com Fernet
 ✅ Migrations com Alembic
@@ -93,6 +143,6 @@ O script cobre:
 ✅ CORS habilitado
 ✅ Documentação automática via Swagger
 
+```
 
-
-
+```
