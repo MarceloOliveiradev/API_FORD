@@ -54,7 +54,9 @@ cd seu-repo
 
 # Criar ambiente virtual
 python -m venv venv
+
 source venv/bin/activate  # Linux/macOS
+
 venv\Scripts\activate     # Windows
 
 # Instalar dependências
