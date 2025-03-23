@@ -39,6 +39,7 @@ cd seu_repositório
 docker-compose up --build
 
 📄 Acesse a documentação Swagger em: http://localhost:8000/docs
+
 📝 Certifique-se de que o arquivo .env contenha:
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 Importante: use db e não localhost dentro do Docker.
