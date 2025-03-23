@@ -1,140 +1,98 @@
 # 🚗 Ford CRM System – API REST com FastAPI
+
 API REST desenvolvida como parte de um desafio técnico para gestão de:
 
-🏭 Fornecedores (/supliers)
+- 🏭 **Fornecedores** (`/supliers`)
+- 🔩 **Peças** (`/parts`)
+- 🛒 **Compras** (`/purchances`)
+- 🚗 **Veículos** (`/vehicle`)
+- 🧾 **Garantias** (`/warranties`)
+- 📊 **Relatórios Analíticos** (`/analytics`)
+- 🔐 **Autenticação JWT** (`/auth`)
 
-🔩 Peças (/parts)
+---
 
-🛒 Compras (/purchances)
+## 🧰 Tecnologias e Funcionalidades
 
-🚗 Veículos (/vehicle)
+- **FastAPI** + **Pydantic**
+- **SQLAlchemy ORM** + **PostgreSQL**
+- **Autenticação JWT** com `python-jose`
+- **Criptografia de CPF** com `cryptography`
+- **Migrations** com Alembic
+- **Testes Automatizados** com `requests`
+- **Docker + Docker Compose**
+- **CI/CD** com GitHub Actions
+- **Swagger UI** disponível em `/docs`
 
-🧾 Garantias (/warranties)
+---
 
-📊 Relatórios Analíticos (/analytics)
+## 🚀 Como Executar
 
-🔐 Autenticação JWT (/auth)
+### ✅ Única opção permitida – Docker
 
-# 🧰 Tecnologias Utilizadas
-FastAPI + Pydantic
-
-PostgreSQL + SQLAlchemy
-
-JWT Auth com python-jose
-
-Criptografia CPF com cryptography
-
-Migrations com Alembic
-
-Testes automatizados com requests
-
-Docker + docker-compose
-
-CI/CD com GitHub Actions
-
-Swagger UI disponível em /docs
-
-# 🚀 Como Executar
-# ✅ Opção 1 – Docker (recomendado)
-Requer docker e docker-compose instalados
+> Requisitos: `docker` e `docker-compose` instalados
 
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
 cd API_FORD
-
 docker-compose up --build
 
-🔗 Acesse: http://localhost:8000/docs
+📄 Acesse a documentação Swagger em: http://localhost:8000/docs
 
-📝 Importante:
-Para rodar com Docker, seu arquivo .env deve conter:
+📝 Certifique-se de que o arquivo .env contenha:
 
-# DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
-# ⚠️ Use db como host no Docker.
+DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
-# 🖥️ Opção 2 – Execução Local
-Requer Python 3.11+, PostgreSQL e virtualenv
-git clone https://github.com/MarceloOliveiradev/API_FORD.git
+# 🔐 Autenticação
 
-cd API_FORD
-
-Crie o ambiente virtual:
-python -m venv venv
-
-source venv/bin/activate     # Linux/macOS
-
-venv\Scripts\activate        # Windows
-
-# Instale as dependências:
-pip install -r requirements.txt
-
-Configure o banco:
-
-1. Crie o banco de dados PostgreSQL:
-createdb FORD_DATABASE
-
-createuser dev_ford --pwprompt
-
-2. Configure o arquivo .env:
-DATABASE_URL=postgresql://dev_ford:34852@localhost:5432/FORD_DATABASE
-# ⚠️ Use localhost como host fora do Docker.
-
-3. Rode as migrations:
-alembic upgrade head
-   
-4. Popule com dados de exemplo (opcional):
-python -m app.populate_db
-
-5. Inicie o servidor:
-uvicorn app.main:app --reload
-
-# 🔐 Autenticação JWT
-
-1. Registrar: POST /auth/register
+1. Registrar usuário: POST /auth/register
 
 2. Login: POST /auth/login
 
-3. Token: adicione no header como:
-
+3. Envie o token JWT no cabeçalho:
 Authorization: Bearer <seu_token>
 
-# 🧪 Testes Automatizados
-Execute:
+# 🧪 Testes Automatizados (dentro do Docker)
+Os testes são executados automaticamente no container ao subir a aplicação.
 
+Ou, se quiser rodar manualmente dentro do container:
+docker exec -it ford_api bash
 python test_all_routes.py
 
 O script cobre:
 
 * Registro e login
 
-* CRUD completo
+* Todas as rotas CRUD
 
 * Relatórios analíticos
 
-* Permissões Admin/User
+* Permissões (admin vs usuário comum)
 
-# 📊 Endpoints de Analytics (JWT necessário)
+# 📊 Endpoints de Analytics (JWT obrigatório)
 
-* /analytics/total-purchases-by-supplier
-* /analytics/total-purchases-by-part
-* /analytics/warranties-by-supplier
-* /analytics/average-purchance-by-type
+*/analytics/total-purchases-by-supplier
+*/analytics/total-purchases-by-part
+*/analytics/warranties-by-supplier
+*/analytics/average-purchance-by-type
 
-# ⚙️ CI/CD com GitHub Actions
 
-* Testes automatizados rodam a cada push
-* PostgreSQL simulado via container
-* Validação via test_all_routes.py
+# ⚙️ CI/CD – GitHub Actions
 
-# 🌟 Diferenciais Entregues
+* Linter + Testes automatizados
+* PostgreSQL mockado em container
+* Execução: python test_all_routes.py
+
+# 🌟 Diferenciais Implementados
 ✅ Autenticação com JWT
 ✅ Criptografia de CPF com Fernet
+✅ Migrations com Alembic
 ✅ Docker + Docker Compose
-✅ Alembic com Migrations
-✅ Testes automatizados
-✅ Permissões Admin x User
-✅ CORS habilitado
 ✅ CI/CD com GitHub Actions
-✅ Documentação com Swagger
+✅ Testes Automatizados
+✅ Permissões diferenciadas (Admin x User)
+✅ CORS habilitado
+✅ Documentação automática via Swagger
+
 
 
 
