@@ -34,7 +34,7 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
 
-cd API_FORD
+cd seu_repositório
 
 docker-compose up --build
 
