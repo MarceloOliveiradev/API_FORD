@@ -45,7 +45,7 @@ DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
 #trocar localhost para db#
 
-🖥️ Opção 2 – Execução Local
+###🖥️ Opção 2 – Execução Local
 Requer: Python 3.11+, PostgreSQL e virtualenv
 
 # Clonar o projeto
