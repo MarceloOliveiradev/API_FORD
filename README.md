@@ -104,13 +104,13 @@ O script simula:
 
 * Permissões de Admin/User
 
-⚠️ Importante:
+# ⚠️ Importante:
 
 Para testes locais: use localhost no .env
 
 Para subir com Docker: use db no .env
 
-📊 Endpoints Analytics
+# 📊 Endpoints Analytics
 Necessário JWT:
 
 * /analytics/total-purchases-by-supplier
@@ -119,7 +119,7 @@ Necessário JWT:
 * /analytics/average-purchance-by-type
 
 
-⚙️ CI/CD – GitHub Actions
+# ⚙️ CI/CD – GitHub Actions
 
 * Linter + Testes executados automaticamente
 
@@ -127,7 +127,7 @@ Necessário JWT:
 
 * Execução: python test_all_routes.py
 
-🌟 Diferenciais Implementados
+# 🌟 Diferenciais Implementados
 
 ✅ Autenticação com JWT
 ✅ Criptografia de CPF com Fernet
