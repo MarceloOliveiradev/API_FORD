@@ -1,38 +1,38 @@
 # 🚗 Ford CRM System – API REST com FastAPI
 API REST desenvolvida como parte de um desafio técnico, com foco na gestão de:
 
-🏭 Fornecedores (/supliers)
+* Fornecedores (/supliers)
 
-🔩 Peças (/parts)
+* Peças (/parts)
 
-🛒 Compras (/purchances)
+* Compras (/purchances)
 
-🚗 Veículos (/vehicle)
+* Veículos (/vehicle)
 
-🧾 Garantias (/warranties)
+* Garantias (/warranties)
 
-📊 Relatórios Analíticos (/analytics)
+* Relatórios Analíticos (/analytics)
 
-🔐 Autenticação JWT (/auth)
+* Autenticação JWT (/auth)
 
-🧰 Tecnologias Utilizadas
+* Tecnologias Utilizadas
 FastAPI + Pydantic
 
-SQLAlchemy ORM + PostgreSQL
+* SQLAlchemy ORM + PostgreSQL
 
-Autenticação JWT com python-jose
+* Autenticação JWT com python-jose
 
-Criptografia de CPF com cryptography
+* Criptografia de CPF com cryptography
 
-Migrations com Alembic
+* Migrations com Alembic
 
-Testes Automatizados com requests
+* Testes Automatizados com requests
 
-Docker + Docker Compose
+* Docker + Docker Compose
 
-CI/CD com GitHub Actions
+* CI/CD com GitHub Actions
 
-Swagger UI disponível em /docs
+* Swagger UI disponível em /docs
 
 # 🚀 Como Executar o Projeto
 Requisitos: Docker e Docker Compose instalados em sua máquina
