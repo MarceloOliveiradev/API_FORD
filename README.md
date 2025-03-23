@@ -49,8 +49,11 @@ Após subir o projeto com docker-compose up --build, você pode acessar o contai
 docker exec -it ford_api bash
 
 Dentro do container, crie o ambiente virtual:
+
 python -m venv venv
+
 source venv/bin/activate #LINUX
+
 venv\Scripts\Activate #WINDOWS
 
 Instale as dependências:
