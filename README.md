@@ -44,6 +44,19 @@ docker-compose up --build
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 Importante: use db e não localhost dentro do Docker.
 
+# 🧪 Ambiente Virtual e Instalação de Dependências (Dentro do Container)
+Após subir o projeto com docker-compose up --build, você pode acessar o container com:
+docker exec -it ford_api bash
+
+Dentro do container, crie o ambiente virtual:
+python -m venv venv
+source venv/bin/activate #LINUX
+venv\Scripts\Activate #WINDOWS
+
+Instale as dependências:
+pip install -r requirements.txt
+
+
 # 🔐 Autenticação
 
 1. Registrar usuário: POST /auth/register
