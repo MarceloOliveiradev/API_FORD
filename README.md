@@ -7,122 +7,134 @@ API REST desenvolvida como parte de um desafio técnico para gestão de:
 - 🛒 **Compras** (`/purchances`)
 - 🚗 **Veículos** (`/vehicle`)
 - 🧾 **Garantias** (`/warranties`)
-- 📊 **Analytics** (`/analytics`)
-- 🔐 **Autenticação via JWT** (`/auth`)
+- 📊 **Relatórios Analíticos** (`/analytics`)
+- 🔐 **Autenticação JWT** (`/auth`)
 
 ---
 
-## 🧰 Tecnologias e Features
+## 🧰 Tecnologias e Funcionalidades
 
-- **[FastAPI](https://fastapi.tiangolo.com/)** + **Pydantic**
+- **FastAPI** + **Pydantic**
 - **SQLAlchemy ORM** + **PostgreSQL**
-- **JWT Auth** com `python-jose`
-- **Criptografia (CPF)** com `cryptography`
-- **Docker** + `docker-compose`
-- **CI/CD** com GitHub Actions
+- **Autenticação JWT** com `python-jose`
+- **Criptografia de CPF** com `cryptography`
 - **Migrations** com Alembic
 - **Testes Automatizados** com `requests`
-- **Swagger UI** na rota `/docs`
+- **Docker + Docker Compose**
+- **CI/CD** com GitHub Actions
+- **Swagger UI** disponível em `/docs`
 
 ---
 
-## 🚀 Executando a API
+## 🚀 Como Executar
 
-### ✅ Opção 1 – Docker (recomendado)
+### ✅ Opção 1 – Com Docker (recomendado)
 
-> Apenas com `docker` e `docker-compose` instalados
+> Requer `docker` e `docker-compose`
 
 ```bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 
-# Subir a API + Banco
 docker-compose up --build
-```
 
-## Acesse em: http://localhost:8000/docs
+##Acesse em: http://localhost:8000/docs##
 
----
+📝 Importante: Para rodar com Docker, o seu .env deve conter:
 
-✅ Opção 2 – Execução local
-Requer Python 3.11+, PostgreSQL e virtualenv
+DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
-# Clonar projeto
+#trocar localhost para db#
 
+🖥️ Opção 2 – Execução Local
+Requer: Python 3.11+, PostgreSQL e virtualenv
+
+# Clonar o projeto
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 
 # Criar ambiente virtual
-
 python -m venv venv
-source venv/bin/activate # Linux/macOS
-venv\Scripts\activate # Windows
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
 
 # Instalar dependências
-
 pip install -r requirements.txt
 
-# Criar o banco de dados PostgreSQL manualmente
+1. Crie o banco PostgreSQL:
+createdb FORD_DATABASE
+createuser dev_ford --pwprompt
 
-# Exemplo:
+2. Configure o .env com:
+DATABASE_URL=postgresql://dev_ford:34852@localhost:5432/FORD_DATABASE
 
-# createdb FORD_DATABASE
-
-# createuser dev_ford --pwprompt
-
-# Configurar variável no .env
-
-echo DATABASE_URL=postgresql://dev_ford:34852@localhost:5432/FORD_DATABASE > .env
-
-# Rodar as migrations
-
+3. Rode as migrations:
 alembic upgrade head
 
-# Popular banco com dados iniciais (opcional)
-
+4. (Opcional) Popular com dados iniciais:
 python -m app.populate_db
 
-# Iniciar servidor
-
+5. Subir o servidor:
 uvicorn app.main:app --reload
+
+_________________________________________________________
 
 🔐 Autenticação
 
-1. Registre-se: POST /auth/register
+1. Registrar usuário: POST /auth/register
 
-2. Faça login: POST /auth/login
+2. Login: POST /auth/login
 
-3. Use o token JWT retornado no header:
-
+3. Enviar token JWT no header:
 Authorization: Bearer <seu_token>
 
-4. Simular logout: POST /auth/logout
 
-🧪 Executar Testes Automatizados
-Simula todo o ciclo: registro → login → CRUD → analytics
-
+🧪 Testes Automatizados
+Execute:
 python test_all_routes.py
 
-📊 Analytics disponíveis (JWT necessário)
+O script simula:
 
-- /analytics/total-purchases-by-supplier
-- /analytics/total-purchases-by-part
-- /analytics/warranties-by-supplier
-- /analytics/average-purchance-by-type
+* Registro e login
 
-🛠️ CI/CD com GitHub Actions
-Linter + Testes rodando automaticamente em pushes/pull requests
+* CRUD completo
 
-Banco PostgreSQL mockado via container
+* Relatórios analíticos
 
-Teste executado: python test_all_routes.py
+* Permissões de Admin/User
 
-💡 Diferenciais implementados
+⚠️ Importante:
+
+Para testes locais: use localhost no .env
+
+Para subir com Docker: use db no .env
+
+📊 Endpoints Analytics
+Necessário JWT:
+
+* /analytics/total-purchases-by-supplier
+* /analytics/total-purchases-by-part
+* /analytics/warranties-by-supplier
+* /analytics/average-purchance-by-type
+
+
+⚙️ CI/CD – GitHub Actions
+
+* Linter + Testes executados automaticamente
+
+* PostgreSQL mockado via container
+
+* Execução: python test_all_routes.py
+
+🌟 Diferenciais Implementados
+
 ✅ Autenticação com JWT
 ✅ Criptografia de CPF com Fernet
+✅ Migrations com Alembic
 ✅ Docker + Docker Compose
 ✅ CI/CD com GitHub Actions
-✅ Migrations com Alembic
+✅ Testes Automatizados
+✅ Permissões diferenciadas (Admin x User)
 ✅ CORS habilitado
-✅ Segurança com permissões de Admin x User
-✅ Testes automatizados para todos os endpoints
+✅ Documentação automática via Swagger
+
