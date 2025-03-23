@@ -40,7 +40,7 @@ Requisitos: Docker e Docker Compose instalados em sua máquina
 # 1️⃣ Clonar o Repositório
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
 
-cd API_FORD
+cd seu_repositório
 
 # 2️⃣ Criar Ambiente Virtual e Instalar Dependências
 Isso garante o bom funcionamento do script de testes e ferramentas de apoio local
