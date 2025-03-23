@@ -46,7 +46,7 @@ DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 Importante: use db e não localhost dentro do Docker.
 
 # 🧪 Ambiente Virtual e Instalação de Dependências (Dentro do Container)
-Após subir o projeto com #docker-compose up --build, você pode acessar o container com:
+Após subir o projeto com docker-compose up --build, você pode acessar o container com:
 
 docker exec -it ford_api bash
 
