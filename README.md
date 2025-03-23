@@ -1,109 +1,124 @@
-# 🚗 Ford CRM System – API REST com FastAPI
+🚗 Ford CRM System – API REST com FastAPI
+API REST desenvolvida como parte de um desafio técnico, com foco na gestão de:
 
-API REST desenvolvida como parte de um desafio técnico para gestão de:
+🏭 Fornecedores (/supliers)
 
-- 🏭 **Fornecedores** (`/supliers`)
-- 🔩 **Peças** (`/parts`)
-- 🛒 **Compras** (`/purchances`)
-- 🚗 **Veículos** (`/vehicle`)
-- 🧾 **Garantias** (`/warranties`)
-- 📊 **Relatórios Analíticos** (`/analytics`)
-- 🔐 **Autenticação JWT** (`/auth`)
+🔩 Peças (/parts)
 
----
+🛒 Compras (/purchances)
 
-## 🧰 Tecnologias e Funcionalidades
+🚗 Veículos (/vehicle)
 
-- **FastAPI** + **Pydantic**
-- **SQLAlchemy ORM** + **PostgreSQL**
-- **Autenticação JWT** com `python-jose`
-- **Criptografia de CPF** com `cryptography`
-- **Migrations** com Alembic
-- **Testes Automatizados** com `requests`
-- **Docker + Docker Compose**
-- **CI/CD** com GitHub Actions
-- **Swagger UI** disponível em `/docs`
+🧾 Garantias (/warranties)
 
----
+📊 Relatórios Analíticos (/analytics)
 
-## 🚀 Como Executar
+🔐 Autenticação JWT (/auth)
 
-### ✅ Única opção – Via Docker (recomendado)
+🧰 Tecnologias Utilizadas
+FastAPI + Pydantic
 
-> Requisitos: `docker` e `docker-compose` instalados
+SQLAlchemy ORM + PostgreSQL
 
+Autenticação JWT com python-jose
+
+Criptografia de CPF com cryptography
+
+Migrations com Alembic
+
+Testes Automatizados com requests
+
+Docker + Docker Compose
+
+CI/CD com GitHub Actions
+
+Swagger UI disponível em /docs
+
+# 🚀 Como Executar o Projeto
+Requisitos: Docker e Docker Compose instalados em sua máquina
+
+# 1️⃣ Clonar o Repositório
 git clone https://github.com/MarceloOliveiradev/API_FORD.git
 
-cd seu_repositório
+cd API_FORD
 
-# 🧪 Ambiente Virtual e Instalação de Dependências
-
-Crie seu ambiente virtual antes de ativar o Docker
-
+# 2️⃣ Criar Ambiente Virtual e Instalar Dependências
+Isso garante o bom funcionamento do script de testes e ferramentas de apoio local
 python -m venv venv
 
-source venv/bin/activate #LINUX
+Ativar ambiente virtual:
 
-venv\Scripts\Activate #WINDOWS
+* Linux/macOS:
+  source venv/bin/activate
 
-Instale as dependências:
+* Windows:
+  venv\Scripts\activate
+  
+Instalar dependências:
+
 pip install -r requirements.txt
 
-Após criar seu ambiente virtual, efetuar o comando:
+# 3️⃣ Executar com Docker
 
 docker-compose up --build
 
-📄 Acesse a documentação Swagger em: http://localhost:8000/docs
+Acesse a documentação Swagger em:
+# 👉 http://localhost:8000/docs
 
-📝 Certifique-se de que o arquivo .env contenha:
+⚙️ Variáveis de Ambiente (.env)
+
+Crie um arquivo .env com:
+
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
-Importante: use db e não localhost dentro do Docker.
+✅ Importante: use db no host ao usar Docker (não localhost).
 
-Você pode acessar o container com:
+🔐 Autenticação com JWT
 
-docker exec -it ford_api bash
+* Registro: POST /auth/register
 
-# 🔐 Autenticação
+* Login: POST /auth/login
 
-1. Registrar usuário: POST /auth/register
-
-2. Login: POST /auth/login
-
-3. Envie o token JWT no cabeçalho:
+* Enviar token no cabeçalho:
    Authorization: Bearer <seu_token>
 
-# 🧪 Testes Automatizados (dentro do Docker)
+#🧪 Testes Automatizados
 
-Os testes são executados automaticamente no container ao subir a aplicação.
+✅ Os testes rodam automaticamente ao subir a API.
 
-Ou, se quiser rodar manualmente dentro do container:
+👉 Ou execute manualmente dentro do container:
+
 docker exec -it ford_api bash
 
 python test_all_routes.py
 
-O script cobre:
+Este script cobre:
 
-- Registro e login
-- Todas as rotas CRUD
-- Relatórios analíticos
-- Permissões (admin vs usuário comum)
+* Registro e Login
 
-# 📊 Endpoints de Analytics (JWT obrigatório)
+* CRUD de todas as entidades
 
-\*/analytics/total-purchases-by-supplier
+* Relatórios analíticos
 
-\*/analytics/total-purchases-by-part
+* Permissões: usuário comum vs admin
 
-\*/analytics/warranties-by-supplier
+# 📊 Endpoints de Analytics (JWT necessário)
 
-\*/analytics/average-purchance-by-type
+* GET /analytics/total-purchases-by-supplier
 
-# ⚙️ CI/CD – GitHub Actions
+* GET /analytics/total-purchases-by-part
 
-- Linter + Testes automatizados
-- PostgreSQL mockado em container
-- Execução: python test_all_routes.py
+* GET /analytics/warranties-by-supplier
+
+* GET /analytics/average-purchance-by-type
+
+# 🚀 CI/CD com GitHub Actions
+
+* Linter + Testes executados automaticamente
+
+* Banco PostgreSQL mockado via container
+
+* Execução dos testes: python test_all_routes.py
 
 # 🌟 Diferenciais Implementados
 
@@ -123,4 +138,7 @@ O script cobre:
 
 ✅ CORS habilitado
 
-✅ Documentação automática via Swagger
+✅ Documentação Swagger interativa
+
+
+
