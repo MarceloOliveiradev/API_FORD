@@ -71,6 +71,9 @@ Crie um arquivo .env com:
 
 DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
+# OBS: Se por acaso ao baixar o repoitório e ele já vier com o arquivo .env, só verifica se está setado para db
+em vez de localhost, não tem a necessidade de criar outro.
+
 ✅ Importante: use db no host ao usar Docker (não localhost).
 
 # 🔐 Autenticação com JWT
