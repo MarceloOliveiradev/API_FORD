@@ -73,7 +73,7 @@ DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 
 ✅ Importante: use db no host ao usar Docker (não localhost).
 
-🔐 Autenticação com JWT
+# 🔐 Autenticação com JWT
 
 * Registro: POST /auth/register
 
@@ -82,7 +82,7 @@ DATABASE_URL=postgresql://dev_ford:34852@db:5432/FORD_DATABASE
 * Enviar token no cabeçalho:
    Authorization: Bearer <seu_token>
 
-#🧪 Testes Automatizados
+# 🧪 Testes Automatizados
 
 ✅ Os testes rodam automaticamente ao subir a API.
 
