@@ -80,7 +80,7 @@ uvicorn app.main:app --reload
 
 _________________________________________________________
 
-🔐 Autenticação
+# 🔐 Autenticação
 
 1. Registrar usuário: POST /auth/register
 
@@ -90,7 +90,7 @@ _________________________________________________________
 Authorization: Bearer <seu_token>
 
 
-🧪 Testes Automatizados
+# 🧪 Testes Automatizados
 Execute:
 python test_all_routes.py
 
