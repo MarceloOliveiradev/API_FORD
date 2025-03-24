@@ -44,6 +44,7 @@ cd seu_repositório
 
 # 2️⃣ Criar Ambiente Virtual e Instalar Dependências
 Isso garante o bom funcionamento do script de testes e ferramentas de apoio local
+
 python -m venv venv
 
 Ativar ambiente virtual:
